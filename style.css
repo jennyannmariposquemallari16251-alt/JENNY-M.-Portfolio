@@ -1,0 +1,149 @@
+/* Jenny Ann Mallari — responsive student portfolio */
+:root {
+  --navy: #172554;
+  --blue: #2563eb;
+  --sky: #dbeafe;
+  --ink: #1e293b;
+  --muted: #64748b;
+  --paper: #ffffff;
+  --bg: #f3f7ff;
+  --line: #e2e8f0;
+  --shadow: 0 18px 45px rgba(30, 64, 175, .10);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+  margin: 0;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 5%, rgba(147,197,253,.35), transparent 26rem),
+    var(--bg);
+  line-height: 1.7;
+}
+.hero {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  color: white;
+  padding: 62px 20px 72px;
+  background: linear-gradient(130deg, #172554 0%, #1d4ed8 58%, #38bdf8 120%);
+}
+.hero::before, .hero::after {
+  content: ""; position: absolute; border: 1px solid rgba(255,255,255,.16);
+  border-radius: 50%; pointer-events: none;
+}
+.hero::before { width: 340px; height: 340px; top: -210px; left: -80px; }
+.hero::after { width: 420px; height: 420px; right: -170px; bottom: -300px; }
+.avatar {
+  position: relative; z-index: 1;
+  width: 154px; height: 154px; border-radius: 50%;
+  object-fit: cover; object-position: center;
+  border: 5px solid rgba(255,255,255,.95);
+  box-shadow: 0 12px 32px rgba(0,0,0,.22);
+  display: block; margin: 0 auto 18px;
+}
+.eyebrow, .section-tag {
+  text-transform: uppercase; letter-spacing: .16em;
+  font-size: .75rem; font-weight: 800;
+}
+.eyebrow { color: #bfdbfe; margin: 0 0 8px; }
+.hero h1 { margin: 0; font-size: clamp(2rem, 5vw, 3.25rem); line-height: 1.15; }
+.intro { max-width: 680px; margin: 16px auto 0; color: #e0f2fe; font-size: 1.05rem; }
+.navbar {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+  padding: 12px 16px;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(226,232,240,.9);
+  box-shadow: 0 5px 18px rgba(15,23,42,.05);
+}
+.navbar a {
+  color: #334155; text-decoration: none; font-size: .9rem;
+  font-weight: 700; padding: 8px 13px; border-radius: 999px;
+  transition: .2s ease;
+}
+.navbar a:hover, .navbar a:focus { color: #1d4ed8; background: #eff6ff; outline: none; }
+main { width: min(960px, calc(100% - 32px)); margin: 34px auto 60px; }
+.panel {
+  background: var(--paper); margin: 24px 0; padding: clamp(22px, 4vw, 38px);
+  border: 1px solid rgba(226,232,240,.9); border-radius: 22px;
+  box-shadow: var(--shadow); scroll-margin-top: 90px;
+}
+.section-tag { color: var(--blue); margin: 0 0 5px; }
+h2 { color: var(--navy); font-size: clamp(1.45rem, 3vw, 1.9rem); margin: 0 0 22px; }
+h2::after { content: ""; display: block; width: 58px; height: 4px; margin-top: 10px; border-radius: 5px; background: linear-gradient(90deg, var(--blue), #38bdf8); }
+h3 { color: #1d4ed8; margin: 0 0 4px; }
+p { margin-top: 0; }
+.body-copy { color: #475569; }
+.info-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin: 20px 0; }
+.info-grid p {
+  display: flex; flex-direction: column; gap: 2px; margin: 0;
+  padding: 14px 16px; border-radius: 14px; background: #f1f6ff;
+  border: 1px solid #e3edff;
+}
+.info-grid strong { color: #64748b; font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; }
+.info-grid span { font-weight: 700; color: #1e293b; }
+.school {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 17px 0; border-bottom: 1px solid var(--line);
+}
+.school:last-child { border-bottom: 0; }
+.school-number {
+  flex: 0 0 42px; height: 42px; display: grid; place-items: center;
+  color: #1d4ed8; background: #dbeafe; border-radius: 13px; font-weight: 800;
+}
+.school p { color: var(--muted); margin: 0; }
+.skill-list { display: flex; flex-wrap: wrap; gap: 10px; }
+.skill-list span {
+  padding: 9px 14px; border-radius: 999px; color: #1e40af;
+  background: #eff6ff; border: 1px solid #dbeafe; font-weight: 700; font-size: .9rem;
+}
+.game-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 14px; margin: 20px 0; }
+.game-controls label, #guessForm label { display: grid; gap: 6px; color: #475569; font-size: .9rem; font-weight: 700; }
+select, input {
+  min-height: 44px; padding: 10px 13px; border: 1px solid #cbd5e1;
+  border-radius: 11px; background: white; color: var(--ink); font: inherit;
+}
+button {
+  min-height: 44px; border: 0; border-radius: 11px; padding: 10px 18px;
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+  color: white; font: inherit; font-weight: 800; cursor: pointer;
+  box-shadow: 0 7px 16px rgba(37,99,235,.18); transition: transform .2s, filter .2s;
+}
+button:hover:not(:disabled) { transform: translateY(-1px); filter: brightness(1.05); }
+button:disabled { opacity: .45; cursor: not-allowed; box-shadow: none; }
+.game-box { padding: 20px; border-radius: 16px; background: #f8fbff; border: 1px solid #dbeafe; }
+.game-status { color: #1e40af; font-weight: 800; }
+.clue { font-size: 1.08rem; font-weight: 700; color: #1e293b; }
+.answer-row { display: flex; gap: 10px; margin-top: 7px; }
+.answer-row input { flex: 1; min-width: 0; }
+.small-note { color: var(--muted); font-size: .88rem; margin: 12px 0 0; }
+.secondary-button { margin-top: 14px; background: #e2e8f0; color: #1e293b; box-shadow: none; }
+pre {
+  overflow-x: auto; padding: 22px; border-radius: 15px; margin: 18px 0;
+  background: #0f172a; color: #e2e8f0; border: 1px solid #1e293b;
+  font:  .84rem/1.65 Consolas, "Courier New", monospace;
+  white-space: pre;
+}
+pre code { font: inherit; }
+footer {
+  text-align: center; padding: 28px 16px; color: #dbeafe;
+  background: #172554; font-size: .9rem;
+}
+footer p { margin: 3px 0; }
+@media (max-width: 640px) {
+  .hero { padding: 45px 18px 55px; }
+  .avatar { width: 132px; height: 132px; }
+  .navbar { gap: 3px; padding: 9px 7px; }
+  .navbar a { font-size: .8rem; padding: 7px 9px; }
+  main { width: min(100% - 22px, 960px); margin-top: 18px; }
+  .panel { margin: 15px 0; border-radius: 17px; }
+  .info-grid { grid-template-columns: 1fr; }
+  .game-controls { align-items: stretch; flex-direction: column; }
+  .game-controls label, .game-controls select { width: 100%; }
+  .answer-row { flex-direction: column; }
+  .answer-row button { width: 100%; }
+  pre { font-size: .72rem; padding: 15px; }
+}

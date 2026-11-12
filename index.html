@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jenny Ann M. Mallari | Student Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      display: block;
+      margin: 0 auto 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <img src="profile.jpg" alt="Jenny Ann Mallari profile picture" class="avatar">
+
+    <p class="eyebrow">BSIT STUDENT PORTFOLIO</p>
+    <h1>Jenny Ann M. Mallari</h1>
+    <p class="intro">A first-year Information Technology student who is learning, exploring, and improving her skills in technology and programming.</p>
+  </header>
+
+  <nav class="navbar" aria-label="Main navigation">
+    <a href="#personal">Personal Info</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#game">My Game</a>
+    <a href="#java">Java Code</a>
+  </nav>
+
+  <main>
+    <section id="personal" class="panel">
+      <p class="section-tag">01 / ABOUT ME</p>
+      <h2>Personal Information</h2>
+      <div class="info-grid">
+        <p><strong>Name</strong><span>Jenny Ann M. Mallari</span></p>
+        <p><strong>Course</strong><span>BS Information Technology</span></p>
+        <p><strong>Year & Section</strong><span>BSIT-1B</span></p>
+        <p><strong>Address</strong><span>Santa Veronica, Guimba, Nueva Ecija</span></p>
+      </div>
+      <p class="body-copy">Hello! I am Jenny Ann M. Mallari. I am currently a first-year BSIT student. I am still learning about computers, web development, and programming. This website is my student portfolio where I can share a little about myself and the things I have learned.</p>
+    </section>
+
+    <section id="education" class="panel">
+      <p class="section-tag">02 / MY JOURNEY</p>
+      <h2>Educational Background</h2>
+
+      <div class="school">
+        <span class="school-number">01</span>
+        <div>
+          <h3>Senior High School</h3>
+          <p>Bonifacio Luz Natividad Education Foundation, Inc.</p>
+        </div>
+      </div>
+
+      <div class="school">
+        <span class="school-number">02</span>
+        <div>
+          <h3>Junior High School</h3>
+          <p>Bartolome Sanggalang National High School (BSNH)</p>
+        </div>
+      </div>
+
+      <div class="school">
+        <span class="school-number">03</span>
+        <div>
+          <h3>College</h3>
+          <p>Our Lady of the Sacred Heart College of Guimba, Inc. — BS Information Technology</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="panel">
+      <p class="section-tag">03 / WHAT I AM LEARNING</p>
+      <h2>Skills</h2>
+      <p class="body-copy">These are some of the skills I am developing as an IT student.</p>
+
+      <div class="skill-list">
+        <span>Basic HTML</span>
+        <span>Basic CSS</span>
+        <span>Java Fundamentals</span>
+        <span>Problem Solving</span>
+        <span>Basic Computer Skills</span>
+        <span>Teamwork</span>
+      </div>
+    </section>
+
+    <section id="game" class="panel">
+      <p class="section-tag">04 / MINI PROJECT</p>
+      <h2>Guess the Word</h2>
+      <p class="body-copy">Choose a subject and difficulty. Read the clue, then type your answer. You have three attempts for each word.</p>
+
+      <div class="game-controls">
+        <label>Subject
+          <select id="subject">
+            <option value="Math">Math</option>
+            <option value="Science">Science</option>
+            <option value="English">English</option>
+          </select>
+        </label>
+
+        <label>Difficulty
+          <select id="difficulty">
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+          </select>
+        </label>
+
+        <button id="startBtn" type="button">Start Game</button>
+      </div>
+
+      <div class="game-box">
+        <p id="gameStatus" class="game-status" aria-live="polite">Choose a subject and difficulty, then press Start Game.</p>
+        <p id="clue" class="clue"></p>
+
+        <form id="guessForm">
+          <label for="guessInput">Your answer</label>
+          <div class="answer-row">
+            <input id="guessInput" type="text" placeholder="Type your answer" autocomplete="off" disabled>
+            <button id="guessBtn" type="submit" disabled>Guess</button>
+          </div>
+        </form>
+
+        <p id="attempts" class="small-note"></p>
+        <button id="nextBtn" class="secondary-button" type="button" hidden>Next Word</button>
+      </div>
+    </section>
+
+    <section id="java" class="panel">
+      <p class="section-tag">05 / CC102 PERFORMANCE TASK</p>
+      <h2>Java Code</h2>
+      <p class="body-copy">This is the Java console version of my Guess the Word game. It asks the player to choose a subject and difficulty, gives a clue, and checks the player's answer.</p>
+
+      <pre><code>import java.util.Scanner;
+import java.util.Random;
+
+public class GuessTheWord {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+        Random random = new Random();
+
+        String playAgain = "yes";
+
+        System.out.println("================================");
+        System.out.println("         GUESS THE WORD");
+        System.out.println("================================");
+
+        while (playAgain.equalsIgnoreCase("yes")) {
+
+            int subject = 0;
+            int difficulty = 0;
+
+            System.out.println("
+CHOOSE A SUBJECT");
+            System.out.println("[1] Math");
+            System.out.println("[2] Science");
+            System.out.println("[3] English");
+
+            while (subject &lt; 1 || subject &gt; 3) {
+                System.out.print("Enter subject: ");
+
+                if (input.hasNextInt()) {
+                    subject = input.nextInt();
+
+                    if (subject &lt; 1 || subject &gt; 3) {
+                        System.out.println("Invalid choice! Try again.");
+                    }
+                } else {
+                    input.next();
+                    System.out.println("Please enter a number.");
+                }
+            }
+
+            System.out.println("
+CHOOSE DIFFICULTY");
+            System.out.println("[1] Easy");
+            System.out.println("[2] Medium");
+            System.out.println("[3] Hard");
+
+            while (difficulty &lt; 1 || difficulty &gt; 3) {
+                System.out.print("Enter difficulty: ");
+
+                if (input.hasNextInt()) {
+                    difficulty = input.nextInt();
+
+                    if (difficulty &lt; 1 || difficulty &gt; 3) {
+                        System.out.println("Invalid choice! Try again.");
+                    }
+                } else {
+                    input.next();
+                    System.out.println("Please enter a number.");
+                }
+            }
+
+            String[] words = new String[3];
+            String[] hints = new String[3];
+
+            if (subject == 1) {
+
+                if (difficulty == 1) {
+                    words[0] = "PLUS";
+                    words[1] = "CIRCLE";
+                    words[2] = "NUMBER";
+
+                    hints[0] = "A symbol used for addition.";
+                    hints[1] = "A round shape.";
+                    hints[2] = "A mathematical value.";
+
+                } else if (difficulty == 2) {
+                    words[0] = "FRACTION";
+                    words[1] = "TRIANGLE";
+                    words[2] = "EQUATION";
+
+                    hints[0] = "A part of a whole.";
+                    hints[1] = "A shape with three sides.";
+                    hints[2] = "A statement with an equal sign.";
+
+                } else {
+                    words[0] = "PERCENTAGE";
+                    words[1] = "MULTIPLICATION";
+                    words[2] = "DENOMINATOR";
+
+                    hints[0] = "A ratio expressed out of 100.";
+                    hints[1] = "Repeated addition of equal groups.";
+                    hints[2] = "The bottom number of a fraction.";
+                }
+
+            } else if (subject == 2) {
+
+                if (difficulty == 1) {
+                    words[0] = "WATER";
+                    words[1] = "PLANT";
+                    words[2] = "SUN";
+
+                    hints[0] = "We drink this every day.";
+                    hints[1] = "A living thing that grows in soil.";
+                    hints[2] = "The star that gives Earth light.";
+
+                } else if (difficulty == 2) {
+                    words[0] = "OXYGEN";
+                    words[1] = "PLANET";
+                    words[2] = "GRAVITY";
+
+                    hints[0] = "A gas humans need to breathe.";
+                    hints[1] = "A large object that moves around a star.";
+                    hints[2] = "The force that pulls objects downward.";
+
+                } else {
+                    words[0] = "PHOTOSYNTHESIS";
+                    words[1] = "EVAPORATION";
+                    words[2] = "ECOSYSTEM";
+
+                    hints[0] = "The process plants use to make food.";
+                    hints[1] = "The process of liquid becoming gas.";
+                    hints[2] = "Living things interacting with their environment.";
+                }
+
+            } else {
+
+                if (difficulty == 1) {
+                    words[0] = "BOOK";
+                    words[1] = "HAPPY";
+                    words[2] = "APPLE";
+
+                    hints[0] = "Something you read.";
+                    hints[1] = "The opposite of sad.";
+                    hints[2] = "A fruit that can be red or green.";
+
+                } else if (difficulty == 2) {
+                    words[0] = "ADJECTIVE";
+                    words[1] = "SYNONYM";
+                    words[2] = "VERB";
+
+                    hints[0] = "A word that describes a noun.";
+                    hints[1] = "A word with a similar meaning.";
+                    hints[2] = "A word that shows an action.";
+
+                } else {
+                    words[0] = "METAPHOR";
+                    words[1] = "HYPERBOLE";
+                    words[2] = "ONOMATOPOEIA";
+
+                    hints[0] = "A comparison without like or as.";
+                    hints[1] = "An extreme exaggeration.";
+                    hints[2] = "A word that imitates a sound.";
+                }
+            }
+
+            int index = random.nextInt(3);
+            String answer = words[index];
+            String hint = hints[index];
+
+            int attempts = 8;
+
+            if (difficulty == 2) {
+                attempts = 6;
+            } else if (difficulty == 3) {
+                attempts = 4;
+            }
+
+            System.out.println("
+================================");
+            System.out.println("             GAME START");
+            System.out.println("================================");
+            System.out.println("Hint: " + hint);
+            System.out.println("Letters: " + answer.length());
+            System.out.println("Attempts: " + attempts);
+
+            String guess = "";
+
+            while (attempts &gt; 0 &amp;&amp; !guess.equalsIgnoreCase(answer)) {
+
+                System.out.print("
+Enter your guess: ");
+                guess = input.next();
+
+                if (guess.equalsIgnoreCase(answer)) {
+                    System.out.println("CORRECT! YOU GOT IT!");
+
+                } else {
+                    attempts--;
+                    System.out.println("Wrong answer! Try again.");
+                    System.out.println("Attempts left: " + attempts);
+                }
+            }
+
+            if (!guess.equalsIgnoreCase(answer)) {
+                System.out.println("
+GAME OVER!");
+                System.out.println("The correct word is: " + answer);
+            }
+
+            System.out.print("
+Play again? (yes/no): ");
+            playAgain = input.next();
+
+            while (!playAgain.equalsIgnoreCase("yes") &amp;&amp;
+                   !playAgain.equalsIgnoreCase("no")) {
+
+                System.out.print("Please enter yes or no: ");
+                playAgain = input.next();
+            }
+        }
+
+        System.out.println("
+THANK YOU FOR PLAYING!");
+
+        input.close();
+    }
+}
+</code></pre>
+
+      <p class="small-note">Save the Java source as <strong>GuessTheWord.java</strong>. The Java game is console-based, as required by the task sheet.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Jenny Ann M. Mallari | Student Portfolio</p>
+    <p>Learning today, building for tomorrow.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
